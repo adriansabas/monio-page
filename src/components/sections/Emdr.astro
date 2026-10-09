@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import meadow from '../../assets/images/meadow-warm.jpg';
+---
+
+<section class="emdr section" id="emdr" aria-labelledby="emdr-title">
+  <div class="container emdr__inner">
+    <div class="emdr__text prose">
+      <h2 id="emdr-title">EMDR</h2>
+      <p>
+        To nowoczesna, skuteczna metoda psychoterapii, szczególnie pomocna w pracy z traumą,
+        trudnymi doświadczeniami z przeszłości oraz objawami lękowymi i psychosomatycznymi. Wspiera
+        naturalną zdolność mózgu do przetwarzania obciążających przeżyć, dzięki czemu zmniejsza
+        intensywność emocji, pomaga zmienić negatywne przekonania na temat siebie i przynosi realną
+        ulgę. EMDR pozwala dotrzeć do źródła trudności, a nie tylko łagodzić objawy. To podejście,
+        w które bardzo wierzę i które często przynosi głęboką, trwałą zmianę.
+      </p>
+    </div>
+
+    <div class="emdr__figure">
+      <Image src={meadow} alt="" widths={[800, 1024]} sizes="(min-width: 60em) 24rem, 100vw" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .emdr__inner {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .emdr__figure {
+    width: min(100%, 24rem);
+    margin-inline: auto;
+  }
+
+  .emdr__figure img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (min-width: 60em) {
+    .emdr__inner {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+
+    .emdr__text {
+      padding-left: clamp(0rem, 6vw, 5rem);
+    }
+  }
+</style>

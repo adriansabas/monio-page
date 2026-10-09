@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Every push to `main` rebuilds and publishes the site
+  push:
+    branches: [main]
+  # Allows running the workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Permissions required to create a Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deployments at the same time; let the in-progress one finish
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Install dependencies (from package-lock.json), build and upload the site
+        uses: withastro/action@v6
+        # Package manager (npm) and Node version are detected from the lockfile
+        # and the default (Node 24). See https://github.com/withastro/action
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

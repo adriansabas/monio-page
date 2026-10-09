@@ -1,0 +1,59 @@
+---
+// Discreet anchor navigation laid over the top of the hero. No JavaScript:
+// on narrow screens the links simply wrap onto a second line.
+const links = [
+  { href: '#o-mnie', label: 'O mnie' },
+  { href: '#wyksztalcenie', label: 'Wykształcenie' },
+  { href: '#terapia', label: 'Terapia' },
+  { href: '#rodzaje-terapii', label: 'Rodzaje terapii' },
+  { href: '#emdr', label: 'EMDR' },
+  { href: '#kontakt', label: 'Kontakt' },
+];
+---
+
+<header class="site-header">
+  <nav aria-label="Sekcje strony">
+    <ul>
+      {
+        links.map(({ href, label }) => (
+          <li>
+            <a href={href}>{label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 2;
+    padding: 1rem var(--gutter);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.6rem 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-text-warm);
+  }
+
+  a:hover {
+    color: var(--color-accent);
+  }
+</style>

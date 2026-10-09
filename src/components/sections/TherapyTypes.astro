@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import meadow from '../../assets/images/meadow-wide.jpg';
+---
+
+<section class="types section" id="rodzaje-terapii" aria-labelledby="types-title">
+  <div class="container">
+    <h2 id="types-title" class="types__title">Rodzaje terapii</h2>
+    <hr class="rule rule--center" />
+
+    <div class="types__grid">
+      <div class="types__item">
+        <h3>Psychoterapia poznawczo-behawioralna (CBT)</h3>
+        <p>
+          Podstawą tego nurtu jest szukanie zależności między emocjami, myślami, zachowaniem
+          a objawami fizjologicznymi, które prowadzą do cierpienia, trudności, czy dyskomfortu.
+          Rozumiejąc owe związki staramy się podczas procesu terapii modyfikować je za pomocą
+          wprowadzania i uczenia się nowych zachowań i/lub zmiany sposobu myślenia, doprowadzając
+          do oczekiwanej, korzystnej zmiany sposobu życia.
+        </p>
+      </div>
+
+      <div class="types__item">
+        <Image
+          class="types__image"
+          src={meadow}
+          alt=""
+          widths={[600, 820]}
+          sizes="(min-width: 60em) 22rem, 100vw"
+        />
+        <h3>Inne podejścia: ACT, Terapia Schematów</h3>
+        <p>
+          Należą do najnowszej trzeciej fali CBT, która daje nowe, nieco szersze spojrzenie
+          i rozumienie osoby zmagającej się ze swoimi trudnościami, a tym samym nowe metody pracy
+          wzbogacające dotychczasowy repertuar terapeutyczny. Zagadnieniami, czy obszarami
+          uwzględnianymi przez ACT, czy Terapię Schematów jest relacja terapeutyczna, duchowość,
+          wyznawane wartości, a także uważność (<em>mindfulness</em>).
+        </p>
+      </div>
+
+      <div class="types__item">
+        <h3>Psychosomatyka</h3>
+        <p class="types__teaser">
+          Pomyśl o <span class="types__caps">soczystej</span> cytrynie...<br />
+          <span class="types__aside">(daj sobie chwilę, by dobrze sobie ją wyobrazić)</span><br />
+          ...czy zauważasz, by coś działo się w Twoich ustach?
+        </p>
+        <p>
+          To fascynujące, jak ciało jest połączone z naszym umysłem. Staram się zgłębiać wiedzę na
+          ten temat i uwzględniać ją w pracy. Wspólnie z Pacjentem odkrywamy zależności istniejące
+          między emocjami, myślami, zachowaniem i jego ciałem, przyglądając się również stanom
+          chorobowym.
+        </p>
+        <p class="types__closing">Czasem ciało może więcej wyrazić niż słowa...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .types__title {
+    text-align: center;
+  }
+
+  .types__grid {
+    display: grid;
+    gap: clamp(3rem, 6vw, 4rem);
+    margin-top: 3rem;
+  }
+
+  .types__item {
+    max-width: var(--measure);
+    margin-inline: auto;
+  }
+
+  .types__item > * + * {
+    margin-top: 1em;
+  }
+
+  .types__item h3 {
+    text-align: center;
+  }
+
+  .types__item h3 + p {
+    margin-top: 1.25em;
+  }
+
+  .types__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-bottom: 1.75rem;
+  }
+
+  .types__teaser {
+    font-style: italic;
+    text-align: center;
+  }
+
+  .types__caps {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .types__aside {
+    font-size: 0.85em;
+  }
+
+  .types__closing {
+    font-style: italic;
+    text-align: center;
+  }
+
+  @media (min-width: 60em) {
+    .types__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+    }
+  }
+</style>

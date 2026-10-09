@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import landscape from '../../assets/images/landscape-vertical.jpg';
+---
+
+<section class="education section" id="wyksztalcenie" aria-labelledby="education-title">
+  <div class="container education__inner">
+    <div class="education__figure">
+      <Image src={landscape} alt="" widths={[615]} sizes="(min-width: 60em) 26rem, 100vw" />
+    </div>
+
+    <div class="education__text prose">
+      <h2 id="education-title">Wykształcenie</h2>
+      <p>
+        Jestem psychologiem i certyfikowanym psychoterapeutą poznawczo-behawioralnym (certyfikat
+        PTTPB nr 1197), a także terapeutą EMDR. Ukończyłam również studia podyplomowe:
+        Psychosomatyka i somatopsychologia (Uniwersytet SWPS).
+      </p>
+      <p>
+        Doświadczenie zawodowe zdobywałam m.in. w MSCZ Pruszków, Ośrodku Leczenia Uzależnień
+        „Terapia Bieszczady”, czy w Poradni Zdrowia Psychicznego w Ustrzykach Dolnych, a także od
+        lat prowadząc własną praktykę. Mam doświadczenie w pracy z grupami i w prowadzeniu
+        zajęć/warsztatów psychoedukacyjnych.
+      </p>
+      <p>
+        Należę do Polskiego Towarzystwa Terapii Poznawczo-Behawioralnej oraz Polskiego Towarzystwa
+        Terapii EMDR. Swoją pracę poddaję stałej superwizji.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .education__inner {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .education__figure {
+    width: min(100%, 26rem);
+    margin-inline: auto;
+  }
+
+  .education__figure img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .education__text {
+    margin-inline: auto;
+  }
+
+  .education__text h2 {
+    text-align: center;
+  }
+
+  @media (min-width: 60em) {
+    .education__inner {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+
+    /* Centered copy as in the mockup; on phones left-aligned text reads better */
+    .education__text {
+      text-align: center;
+    }
+  }
+</style>
