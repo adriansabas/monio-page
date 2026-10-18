@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import bouquet from '../../assets/images/bouquet.jpg';
+---
+
+<section class="contact" id="kontakt" aria-labelledby="contact-title">
+  <div class="contact__inner">
+    <div class="contact__figure">
+      <Image src={bouquet} alt="" widths={[600, 768]} sizes="(min-width: 60em) 50vw, 100vw" />
+    </div>
+
+    <div class="contact__panel">
+      <div class="contact__content">
+        <h2 id="contact-title">Kontakt</h2>
+        <p class="contact__lead">Zadzwoń, napisz, porozmawiajmy.</p>
+        <hr class="rule" />
+
+        <dl class="contact__details">
+          <div>
+            <dt>Tel.</dt>
+            <dd><a href="tel:+48503950603">+48 503 950 603</a></dd>
+          </div>
+          <div>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:wolinska.m@gmail.com">wolinska.m@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>Gabinet</dt>
+            <dd>ul. Wspólna Droga 20/19, Warszawa</dd>
+          </div>
+          <div>
+            <dt>Sesje online</dt>
+            <dd>Google Meet</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact__inner {
+    display: grid;
+  }
+
+  .contact__figure img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+
+  .contact__panel {
+    display: grid;
+    align-items: center;
+    padding: clamp(3.5rem, 8vw, 7rem) var(--gutter);
+    background: var(--color-cream);
+  }
+
+  .contact__content {
+    width: min(100%, 30rem);
+    margin-inline: auto;
+  }
+
+  .contact__lead {
+    margin-top: 1rem;
+    font-size: clamp(1.35rem, 1.2rem + 0.7vw, 1.75rem);
+    font-style: italic;
+  }
+
+  .contact__details > div + div {
+    margin-top: 1.5rem;
+  }
+
+  dt {
+    font-size: var(--text-small);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  dd {
+    margin: 0.25rem 0 0;
+    font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+    overflow-wrap: anywhere;
+  }
+
+  @media (min-width: 60em) {
+    .contact__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact__figure img {
+      aspect-ratio: auto;
+    }
+
+    .contact__panel {
+      padding-inline: clamp(3rem, 7vw, 7rem);
+    }
+  }
+</style>

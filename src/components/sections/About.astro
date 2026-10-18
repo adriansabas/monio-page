@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../../assets/images/portrait-brick.jpg';
+---
+
+<section class="about section" id="o-mnie" aria-labelledby="about-title">
+  <div class="container about__inner">
+    <div class="about__text prose">
+      <h2 id="about-title" class="about__title">O mnie i mojej pracy...</h2>
+      <p>
+        Decyzja o podjęciu psychoterapii bywa trudna i często wymaga odwagi. Z dużym szacunkiem
+        odnoszę się do osób, które decydują się na ten krok i powierzają mi swoje zaufanie. To dla
+        mnie przywilej móc towarzyszyć w tym procesie i wspólnie poszukiwać dróg prowadzących do
+        lepszego rozumienia siebie oraz poprawy jakości życia.
+      </p>
+      <p>
+        Relacja terapeutyczna jest jednym z kluczowych czynników skuteczności terapii, dlatego
+        przykładam do niej szczególną wagę. W pracy kieruję się empatią, autentycznością, szacunkiem
+        i uważnością, dbając o atmosferę bezpieczeństwa i komfortu. Jednocześnie koncentruję się na
+        rzetelności i skuteczności oddziaływań terapeutycznych.
+      </p>
+      <p>
+        Wierzę, że choć proces terapii bywa wymagający, realna zmiana jest możliwa. Współpraca
+        oparta na zaufaniu i zaangażowaniu pomaga stopniowo przezwyciężać trudności i budować
+        bardziej satysfakcjonujące życie.
+      </p>
+      <p>
+        Psychoterapia jest dla mnie nie tylko zawodem, lecz także pasją. Stale rozwijam swoje
+        kompetencje, uczestnicząc w szkoleniach i superwizjach, aby oferować pomoc opartą na
+        aktualnej wiedzy i sprawdzonych metodach.
+      </p>
+      <p class="about__cta">
+        <a class="button" href="#kontakt">Umów spotkanie</a>
+      </p>
+    </div>
+
+    <div class="about__figure">
+      <Image
+        src={portrait}
+        alt="Monika Wolińska stojąca przy ceglanej ścianie"
+        widths={[600, 1000, 1639]}
+        sizes="(min-width: 60em) 30rem, 100vw"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--color-cream);
+  }
+
+  .about__inner {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .about__title {
+    font-size: clamp(2.25rem, 1.8rem + 2vw, 3.5rem);
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .about__cta {
+    margin-top: 2rem;
+  }
+
+  .about__figure {
+    order: -1; /* photo first on narrow screens, text first in the DOM */
+    width: min(100%, 30rem);
+    margin-inline: auto;
+  }
+
+  .about__figure img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (min-width: 60em) {
+    .about__inner {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+
+    .about__figure {
+      order: 0;
+    }
+  }
+</style>

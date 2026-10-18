@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Education from '../components/sections/Education.astro';
+import Therapy from '../components/sections/Therapy.astro';
+import TherapyTypes from '../components/sections/TherapyTypes.astro';
+import Emdr from '../components/sections/Emdr.astro';
+import Contact from '../components/sections/Contact.astro';
+
+const title = 'Monika Wolińska – psycholog, psychoterapeuta CBT i EMDR | Warszawa';
+const description =
+  'Psychoterapia poznawczo-behawioralna (CBT), EMDR, ACT i Terapia Schematów dla osób dorosłych. ' +
+  'Gabinet w Warszawie i sesje online. Pierwsza konsultacja 160 zł.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main id="tresc">
+    <Hero />
+    <About />
+    <Education />
+    <Therapy />
+    <TherapyTypes />
+    <Emdr />
+    <Contact />
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {new Date().getFullYear()} Monika Wolińska</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  .site-footer {
+    padding-block: 1.5rem;
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+</style>

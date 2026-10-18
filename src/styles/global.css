@@ -1,0 +1,212 @@
+/*
+ * Global styles: design tokens, base typography and the handful of shared
+ * building blocks (buttons, rules, section/container). Layout that belongs to
+ * a single section lives in that section's .astro component.
+ *
+ * `--font-serif` is defined by Astro's <Font /> component (see BaseLayout.astro).
+ */
+
+:root {
+  /* Palette sampled from the Canva mockup */
+  --color-cream: #fff9f2;
+  --color-white: #ffffff;
+  --color-text: #644f44;
+  --color-text-warm: #79553b;
+  --color-accent: #a1714c;
+  --color-olive: #434426;
+  --color-olive-dark: #2f3019;
+
+  /* Layout */
+  --container: 72rem;
+  --measure: 38em; /* comfortable line length for body text */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(4.5rem, 9vw, 8rem);
+
+  /* Type scale */
+  --text-body: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
+  --text-h2: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
+  --text-h3: clamp(1.45rem, 1.3rem + 0.7vw, 1.9rem);
+  --text-small: 0.9rem;
+  --tracking-caps: 0.14em;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--color-text);
+  background: var(--color-white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--color-accent);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Shared blocks ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+/* Running text: limited line length, paragraph spacing */
+.prose {
+  max-width: var(--measure);
+}
+
+.prose > * + * {
+  margin-top: 1em;
+}
+
+.prose > h2 + *,
+.prose > h3 + * {
+  margin-top: 1.25em;
+}
+
+/* Thin warm separator used across sections */
+.rule {
+  width: 6rem;
+  height: 1px;
+  margin: 2rem 0;
+  border: 0;
+  background: var(--color-accent);
+}
+
+.rule--center {
+  margin-inline: auto;
+}
+
+/* Call to action: plain rectangular button, no pill shape, no heavy shadow */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85em 2.25em;
+  border: 1px solid var(--color-olive);
+  background: var(--color-olive);
+  color: var(--color-cream);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.button:hover {
+  background: var(--color-olive-dark);
+  border-color: var(--color-olive-dark);
+  color: var(--color-cream);
+}
+
+.button--light {
+  background: var(--color-cream);
+  border-color: var(--color-cream);
+  color: var(--color-text-warm);
+}
+
+.button--light:hover {
+  background: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-text-warm);
+}
+
+/* Keyboard users can jump straight to the content */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-olive);
+  color: var(--color-cream);
+  transform: translateY(-120%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---------- Motion preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button {
+    transition: none;
+  }
+}

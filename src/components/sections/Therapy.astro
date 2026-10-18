@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import meadow from '../../assets/images/meadow-light.jpg';
+---
+
+<section class="therapy section" id="terapia" aria-labelledby="therapy-title">
+  <Image class="therapy__background" src={meadow} alt="" widths={[800, 1024]} sizes="100vw" />
+
+  <div class="container">
+    <div class="therapy__panel">
+      <h2 id="therapy-title">Terapia</h2>
+      <p class="therapy__lead">W jakich obszarach wspieram?</p>
+
+      <div class="therapy__text">
+        <p>
+          Pracuję z osobami dorosłymi zmagającymi się z trudnościami w relacjach, w kryzysie
+          emocjonalnym, doświadczającymi zaburzeń depresyjnych i/lub lękowych, mierzących się
+          z konsekwencjami przeżyć traumatycznych, a także z wyzwaniami związanymi z ADHD i/lub
+          spektrum autyzmu.
+        </p>
+        <p>
+          Podczas pierwszej konsultacji staram się ocenić, czy będę mogła pomóc w wyzwaniu,
+          z którym zgłasza się dana osoba. Prowadzę terapię indywidualną online i w gabinecie
+          w Warszawie.
+        </p>
+      </div>
+
+      <hr class="rule rule--center" />
+
+      <h3 class="therapy__cost-title">Koszt</h3>
+      <ul class="therapy__prices">
+        <li>Pierwsza konsultacja (50 min) – <strong>160 zł</strong></li>
+        <li>Kolejne sesje (50 min) – <strong>230 zł</strong></li>
+      </ul>
+
+      <p class="therapy__cta">
+        <a class="button" href="#kontakt">Umów spotkanie</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .therapy {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .therapy__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .therapy__panel {
+    max-width: 54rem;
+    margin-inline: auto;
+    padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem);
+    background: var(--color-cream);
+    text-align: center;
+  }
+
+  .therapy__lead {
+    margin-top: 1rem;
+    font-size: clamp(1.35rem, 1.2rem + 0.7vw, 1.75rem);
+    font-style: italic;
+  }
+
+  .therapy__text {
+    max-width: var(--measure);
+    margin: 2rem auto 0;
+    text-align: left;
+  }
+
+  .therapy__text > p + p {
+    margin-top: 1em;
+  }
+
+  @media (min-width: 60em) {
+    /* Centered copy as in the mockup; on phones left-aligned text reads better */
+    .therapy__text {
+      text-align: center;
+    }
+  }
+
+  .therapy__cost-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .therapy__prices {
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+    font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  }
+
+  .therapy__prices li + li {
+    margin-top: 0.35em;
+  }
+
+  .therapy__prices strong {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .therapy__cta {
+    margin-top: 2.25rem;
+  }
+</style>

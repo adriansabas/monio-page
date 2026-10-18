@@ -1,0 +1,21 @@
+# Migration source material (Canva export) – not needed to build the site
+/old_page
+
+# Build output
+dist/
+
+# Generated types and caches
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+
+# Environment variables
+.env
+.env.production
+
+# OS / editor
+.DS_Store
