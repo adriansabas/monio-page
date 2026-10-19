@@ -16,8 +16,8 @@ import sitemap from '@astrojs/sitemap';
  * so it must match the address real visitors use.
  */
 export default defineConfig({
-  site: 'https://adriansabas.github.io',
-  base: '/monio-page',
+  site: 'https://monikawolinska.com',
+  base: '/',
   // Makes `import.meta.env.BASE_URL` always end with "/" and keeps one
   // canonical form of the URL in the sitemap.
   trailingSlash: 'always',
